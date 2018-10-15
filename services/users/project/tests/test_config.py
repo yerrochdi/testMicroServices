@@ -40,6 +40,7 @@ class TestTestingConfig(TestCase):
             os.environ.get('DATABASE_TEST_URL')
         )
 
+
 class TestProductionConfig(TestCase):
     def create_app(self):
         app.config.from_object('project.config.ProductionConfig')

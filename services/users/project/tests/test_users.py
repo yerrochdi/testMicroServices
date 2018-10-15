@@ -15,6 +15,7 @@ def add_user(username, email):
     db.session.commit()
     return user
 
+
 class TestUserService(BaseTestCase):
     """Tests for the Users Service."""
 
@@ -54,7 +55,6 @@ class TestUserService(BaseTestCase):
             self.assertEqual(response.status_code, 400)
             self.assertIn('Invalid payload.', data['message'])
             self.assertIn('fail', data['status'])
-
 
     def test_add_user_invalid_json_keys(self):
         """
@@ -177,6 +177,7 @@ class TestUserService(BaseTestCase):
             self.assertIn(b'All Users', response.data)
             self.assertNotIn(b'<p>No users!</p>', response.data)
             self.assertIn(b'michael', response.data)
+
 
 if __name__ == '__main__':
     unittest.main()
